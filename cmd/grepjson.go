@@ -11,12 +11,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
-type grepCmd struct {
+type grepjsonCmd struct {
 }
 
-func (cmd *grepCmd) Run(_ *cobra.Command, args []string) {
+func (cmd *grepjsonCmd) Run(_ *cobra.Command, args []string) {
 	if len(args) < 4 {
-		fmt.Println("Usage: analyst grep <jsonfile> <key> <cmp> <value>")
+		fmt.Println("Usage: analyst grepjson <jsonfile> <key> <cmp> <value>")
 		os.Exit(1)
 	}
 	file := args[0]
@@ -81,10 +81,10 @@ func (cmd *grepCmd) Run(_ *cobra.Command, args []string) {
 }
 
 func init() {
-	readPack := &grepCmd{}
+	readPack := &grepjsonCmd{}
 
 	cmd := &cobra.Command{
-		Use:   "grep",
+		Use:   "grepjson",
 		Short: "grep a given json file",
 		Run:   readPack.Run,
 	}
